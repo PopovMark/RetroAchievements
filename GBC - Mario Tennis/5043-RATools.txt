@@ -1,0 +1,1138 @@
+// Mario Tennis
+// #ID = 5043
+//--------------------------------------------------------------------------Rom 1-----------------------------------------------------------------------------------------------------------------------
+// Rom file = Mario Tennis (Europe) [No-Intro]
+// RA Hash = a320f9de83767bb1bc1bbbc6fbd96011
+//--------------------------------------------------------------------------Rom 2-----------------------------------------------------------------------------------------------------------------------
+// Rom file = Mario Tennis (USA) [No-Intro]
+// RA Hash = 50af67f7321d84bd052f0e793ee0613c
+//--------------------------------------------------------------------------Rom 3-----------------------------------------------------------------------------------------------------------------------
+// Rom file = Mario Tennis GB (Japan) [No-Intro]
+// RA Hash = d7f63bbb351a95d73d085a58c8e9f449
+
+// Booleans
+True = 0x01
+False = 0x00
+On = 0x01
+Off = 0x00
+Yes = 0x01
+No = 0x00
+
+// Player, character, level values
+P1 = 0x00
+P2 = 0x01
+C1 = 0x00
+C2 = 0x01
+C3 = 0x02
+C4 = 0x03
+L1 = 0x00
+L2 = 0x01
+L3 = 0x02
+L4 = 0x03
+L5 = 0x04
+//--------------------------------------------------------------------------Arrays-----------------------------------------------------------------------------------------------------------------------
+CharLookup =
+{
+    0x00: "Alex",
+    0x01: "Harry",
+    0x02: "Nina",
+    0x03: "Kate",
+    0x04: "Allie",
+    0x05: "Joy",
+    0x06: "Brian",
+    0x07: "Pam",
+    0x08: "Bob",
+    0x09: "Beth",
+    0x0a: "Fay",
+    0x0b: "Curt",
+    0x0c: "Mark",
+    0x0d: "Sean",
+    0x0e: "Sammi",
+    0x0f: "Elden",
+    0x10: "Spike",
+    0x11: "Emily",
+    0x12: "B. Coz",
+    0x13: "A. Coz",
+    0x14: "Kevin (dummy)",
+    0x15: "Tennis Machine",
+    0x16: "Allie",
+    0x17: "Luigi",
+    0x18: "Donkey Kong",
+    0x19: "Baby Mario",
+    0x1a: "Mario",
+    0x1b: "Waluigi",
+    0x1c: "Yoshi",
+    0x1d: "Bowser",
+    0x1e: "Wario",
+    0x1f: "Peach"
+}
+
+CharSpriteLookup =
+{
+    0x00: "Alex",
+    0x01: "Nina",
+    0x02: "Harry",
+    0x03: "Kate"
+}
+
+CourtLookup =
+{
+    0x00: "Hard Court",
+    0x01: "Clay Court",
+    0x02: "Grass Court",
+    0x03: "Composition Court",
+    0x04: "Star Court",
+    0x05: "Castle Court",
+    0x06: "Tropics Court",
+    0x07: "Jungle Court",
+    0x08: "Warehouse Court",
+    0x09: "Training Court",
+    0x0a: "Tennis Machine",
+    0x0b: "Wall Practice",
+    0x0c: "Center Court",
+    0x0d: "Grass Court",
+    0x0f: "Target Shot",
+    0x10: "Shooting Star",
+    0x11: "Banana Bunch",
+    0x12: "Boo Blast",
+    0x13: "Perfect Shot",
+    0x14: "Treasure Box",
+    0x15: "Medallion Match",
+    0x16: "Fruit Fantasy",
+    0x17: "Two-on-One",
+    0x18: "Training Court",
+}
+
+StoryLocationLookup = // TODO: do separate things for plane cutscene and credits
+{
+    0x00: "ABSOLUTELY NOWHERE OH MY GOD",
+    0x05: "in the Academy Main Building",
+    0x06: "in the Academy Wing",
+    0x07: "at the Courtyard",
+    0x08: "in the Restaurant Plaza",
+    0x09: "at the Dorm Entrance",
+    0x0a: "in the Dormitory",
+    0x0b: "at the Junior Class Court",
+    0x0c: "at the Junior Class Court",
+    0x0d: "at the Restaurant",
+    0x0e: "at the Cafeteria",
+    0x0f: "at the Training Court",
+    0x10: "at the Senior Class Court",
+    0x11: "at the Training Center",
+    0x12: "in the Tennis Machine Room",
+    0x13: "in the Wall Practice Room",
+    0x14: "at the Academy Entrance",
+    0x15: "at the Island Open Tournament Courtyard",
+    0x16: "at the Island Open Court #1",
+    0x17: "at the Island Open Court #2",
+    0x18: "at the Island Open Center Court",
+    0x19: "at the Island Open Tournament Grounds",
+    0x1a: "at the Island Open Awards Ceremony",
+    0x1b: "on a plane",
+    0x1c: "at the Castle Court",
+    0x1d: "in Peach's Castle",
+}
+
+MatchLocationLookup = // unfinished
+{
+    0x000: "the Junior Class",
+    0x001: "the Junior Class",
+    0x002: "the Junior Class",
+    0x003: "the Junior Class",
+    0x004: "the Junior Class",
+    0x005: "the Senior Class",
+    0x006: "the Senior Class",
+    0x007: "the Senior Class",
+    0x008: "the Senior Class",
+    0x009: "the Senior Class",
+    0x00a: "the Varsity Squad",
+    0x00b: "the Varsity Squad",
+    0x010: "the Island Open",
+    0x011: "the Island Open",
+    0x012: "the Island Open",
+    0x013: "the Island Open",
+    0x016: "Peach's Castle",
+    0x017: "Peach's Castle",
+    0x018: "Peach's Castle",
+    0x100: "the Junior Class",
+    0x102: "the Junior Class",
+    0x103: "the Junior Class",
+    0x104: "the Junior Class",
+    0x105: "the Senior Class",
+    0x107: "the Senior Class",
+    0x108: "the Senior Class",
+    0x109: "the Senior Class",
+    0x10a: "the Varsity Squad",
+    0x10d: "the Varsity Squad",
+    0x111: "the Island Open",
+    0x112: "the Island Open",
+    0x113: "the Island Open",
+    0x116: "Peach's Castle",
+    0x117: "Peach's Castle",
+    0x118: "Peach's Castle",
+}
+
+PointsLookup = // also w/tiebreaker
+{
+    0x00: "0",
+    0x01: "15",
+    0x02: "30",
+    0x03: "40",
+    0x04: "Adv.",
+    0x100: "0",
+    0x101: "1",
+    0x102: "2",
+    0x103: "3",
+    0x104: "4",
+    0x105: "5",
+    0x106: "6",
+    0x107: "Adv.",
+}
+
+DiffLookup =
+{
+    0x00: "Easy",
+    0x01: "Normal",
+    0x02: "Hard",
+    0x03: "Intense",
+}
+
+//--------------------------------------------------------------------------Input Flags-----------------------------------------------------------------------------------------------------------------------
+function Mem_InputFlags() => byte(0xff90)
+
+function Mem_Input_Up() => bit6(0xff90)
+function Mem_Input_Down() => bit7(0xff90)
+function Mem_Input_Left() => bit5(0xff90)
+function Mem_Input_Right() => bit4(0xff90)
+function Mem_Input_A() => bit0(0xff90)
+function Mem_Input_B() => bit1(0xff90)
+function Mem_Input_Start() => bit3(0xff90)
+function Mem_Input_Select() => bit2(0xff90)
+//--------------------------------------------------------------------------Universal Values-----------------------------------------------------------------------------------------------------------------------
+function Mem_CurrentBGM() => byte(0xc33e)
+    // BGM values
+    BGM_None = 0x00
+    BGM_Intro = 0x01
+    BGM_TitleScreen = 0x02
+    BGM_MainMenu = 0x03
+    BGM_Status = 0x04
+    BGM_Dictionary = 0x05
+    BGM_Exhibition = 0x06
+    BGM_Unused1 = 0x07
+    BGM_MarioMinigame = 0x08
+    BGM_Win = 0x09
+    BGM_Lose = 0x0a
+    BGM_EarnEXP = 0x0b
+    BGM_DistributeEXP = 0x0c
+    BGM_ChooseStats = 0x0d
+    BGM_Tiebreaker = 0x0e
+    BGM_SetPoint = 0x0f
+    BGM_GamePoint = 0x10
+    BGM_StarCourt = 0x11
+    BGM_CastleCourt = 0x12
+    BGM_TropicCourt = 0x13
+    BGM_WarehouseCourt = 0x14
+    BGM_BowserMinigame = 0x15
+    BGM_JungleCourt = 0x16
+    BGM_Unused2 = 0x17
+    BGM_Unused3 = 0x18
+    BGM_ShootingStar = 0x19
+    BGM_AcademyMainBuilding = 0x1a
+    BGM_StoryOutdoors = 0x1b
+    BGM_Dormitory = 0x1c
+    BGM_StoryIndoors = 0x1d
+    BGM_TennisMachine = 0x1e
+    BGM_WallPractice = 0x1f
+    BGM_PracticeMatch = 0x20
+    BGM_JuniorMatch = 0x21
+    BGM_SeniorMatch = 0x22
+    BGM_VarsityMatch = 0x23
+    BGM_TrainingCourtMatch = 0x24
+    BGM_TrainingCourtPractice = 0x25
+    BGM_IslandOpenBegin = 0x26
+    BGM_IslandOpenSemis = 0x27
+    BGM_IslandOpenFinals = 0x28
+    BGM_DreamMatch = 0x29
+    BGM_Unused4 = 0x2a
+    BGM_Congratulations = 0x2b
+    BGM_Credits = 0x2c
+    BGM_TheEnd = 0x2d
+    BGM_Sleep = 0x2e
+    BGM_LevelUp = 0x2f
+    BGM_HighScore = 0x30
+    BGM_ExhibitionMatchStart = 0x31
+    BGM_StoryMatchStart = 0x32
+
+function Mem_GameType() => byte(0xc9c5)
+    // Game type values
+    Singles = 0x00
+    Doubles = 0x01
+
+function Mem_CurrentGameMode() => byte(0xc8a6)
+    // Game mode values
+    Mode_None = 0x00
+    Mode_RankingMatch = 0x01
+    Mode_IslandOpenMatch = 0x02
+    Mode_PracticeMatch = 0x03
+    Mode_Exhibition = 0x04
+    Mode_TrainingCourt = 0x05
+    Mode_TrainingCenter = 0x06
+    Mode_MarioMinigame = 0x08
+    Mode_DreamMatch = 0x0a
+
+function Mem_MinigameLevel() => byte(0xc376)
+function Mem_MinigameCurrentScore() => word(0xc47c)
+function Mem_MinigameTargetScore() => word(0xc47e)
+
+function Bool_InIntroCutscene() => byte(0xcb41) == 0x00
+
+function Bool_MusicOn() => byte(0xffce) == 0x00
+//--------------------------------------------------------------------------In Match Values-----------------------------------------------------------------------------------------------------------------------
+function Mem_CharID(PNum, CNum) => byte(0xca0b + 0x80*PNum + 0x40*CNum)
+    // Character values
+    Char_Alex = 0x00
+    Char_Harry = 0x01
+    Char_Nina = 0x02
+    Char_Kate = 0x03
+    Char_Allie = 0x04
+    Char_Joy = 0x05
+    Char_Brian = 0x06
+    Char_Pam = 0x07
+    Char_Bob = 0x08
+    Char_Beth = 0x09
+    Char_Fay = 0x0a
+    Char_Curt = 0x0b
+    Char_Mark = 0x0c
+    Char_Sean = 0x0d
+    Char_Sammi = 0x0e
+    Char_Elden = 0x0f
+    Char_Spike = 0x10
+    Char_Emily = 0x11
+    Char_BCoz = 0x12
+    Char_ACoz = 0x13
+    Char_Kevin = 0x14
+    Char_TennisMachine = 0x15
+    Char_Allie2 = 0x16
+    Char_Luigi = 0x17
+    Char_DK = 0x18
+    Char_BabyMario = 0x19
+    Char_Mario = 0x1a
+    Char_Waluigi = 0x1b
+    Char_Yoshi = 0x1c
+    Char_Bowser = 0x1d
+    Char_Wario = 0x1e
+    Char_Peach = 0x1f
+
+function Mem_CurrentCourt() => byte(0xc8f4)
+    // Court values
+    Court_HardCourt = 0x00
+    Court_ClayCourt = 0x01
+    Court_GrassCourt = 0x02
+    Court_CompositionCourt = 0x03
+    Court_StarCourt = 0x04
+    Court_CastleCourt = 0x05
+    Court_TropicsCourt = 0x06
+    Court_JungleCourt = 0x07
+    Court_WarehouseCourt = 0x08
+    Court_TrainingPractice = 0x09
+    Court_TennisMachine = 0x0a
+    Court_WallPractice = 0x0b
+    Court_IslandOpenFinal = 0x0c
+    Court_IslandOpen = 0x0d
+    Court_TargetShot = 0x0f
+    Court_ShootingStar = 0x10
+    Court_BananaBunch = 0x11
+    Court_BooBlast = 0x12
+    Court_PerfectShot = 0x13
+    Court_TreasureBox = 0x14
+    Court_MedallionMatch = 0x15
+    Court_FruitFantasy = 0x16
+    Court_TwoOnOne = 0x17
+    Court_TrainingMatch = 0x18
+
+function Mem_CharDiff(PNum, CNum) => byte(0xca1f + 0x80*PNum + 0x40*CNum)
+    // Difficulty values
+    Diff_Easy = 0x00
+    Diff_Normal = 0x01
+    Diff_Hard = 0x02
+    Diff_Intense = 0x03
+
+function Mem_SetCount() => byte(0xc8f0)
+function Mem_GameCount() => byte(0xc8f1)
+
+function Mem_Player_Sets(PNum) => byte(0xc8e0 + PNum)
+function Mem_Player_Games(PNum) => byte(0xc8e2 + PNum)
+function Mem_Player_Points(PNum) => byte(0xc8e4 + PNum)
+
+function Bool_IsDeuce() => byte(0xc8e6) == 0x01
+function Bool_IsTiebreaker() => byte(0xc8e7) == 0x01
+function Mem_Flag_Tiebreaker() => byte(0xc8e7)
+
+function Mem_Flag_MatchWin() => byte(0xc8e8)
+function Mem_Flag_SetWin() => byte(0xc8e9)
+function Mem_Flag_GameWin() => byte(0xc8ea)
+function Mem_Flag_PointWin() => byte(0xc8eb)
+    // Flag values
+    Flag_None = 0x00
+    Flag_Win = 0x01
+    Flag_Lose = 0xff
+
+function Mem_Char_ServiceAceCount(CNum) => byte(0xc8c0 + 0x08*CNum)
+function Mem_Char_ReturnAceCount(CNum) => byte(0xc8c1 + 0x08*CNum)
+function Mem_Char_SmashAceCount(CNum) => byte(0xc8c2 + 0x08*CNum)
+function Mem_Char_LobShotCount(CNum) => byte(0xc8c3 + 0x08*CNum)
+function Mem_Char_DropShotCount(CNum) => byte(0xc8c4 + 0x08*CNum)
+function Mem_Char_FaultCount(CNum) => byte(0xc8c5 + 0x08*CNum)
+function Mem_Char_DoubleFaultCount(CNum) => byte(0xc8c6 + 0x08*CNum)
+
+function Mem_TotalGamesInMatch() => byte(0xc8ec)
+function Mem_TotalPointsInGame() => byte(0xc8ed)
+//--------------------------------------------------------------------------Story Mode Values-----------------------------------------------------------------------------------------------------------------------
+function Mem_Story_PlayerXPos() => word(0xc2d0)
+function Mem_Story_PlayerYPos() => word(0xc2d2)
+
+function Mem_Story_Location() => byte(0xc280)
+    // Story location values
+    Empty = 0x00
+    AcademyMainBuilding = 0x05
+    AcademyWing = 0x06
+    Courtyard = 0x07
+    RestaurantPlaza = 0x08
+    DormEntrance = 0x09
+    Dormitory = 0x0a
+    JuniorCourt = 0x0b
+    Restaurant = 0x0d
+    Cafeteria = 0x0e
+    TrainingCourt = 0x0f
+    SeniorCourt = 0x10
+    TrainingCenter = 0x11
+    MachineRoom = 0x12
+    WallRoom = 0x13
+    AcademyEntrance = 0x14
+    TournamentCourtyard = 0x15
+    Court1 = 0x16
+    Court2 = 0x17
+    CenterCourt = 0x18
+    Tournament = 0x19
+    AwardsCeremony = 0x1a
+    PlaneCutscene = 0x1b
+    CastleCourt = 0x1c
+    PeachCastle = 0x1d
+    CreditsCutscene = 0x1e
+
+function Mem_StoryChar_CharSprite(CNum) => byte(0xc90b + 0x40*CNum)
+function Mem_StoryChar_CharColor(CNum) => byte(0xc90c + 0x40*CNum)
+function Mem_StoryChar_CharLevel(CNum) => byte(0xc818 + 0x40*CNum)
+function Mem_StoryChar_CharEXP(CNum) => word(0xc82c + 0x40*CNum)
+
+function Mem_StoryChar_SpinLevel(CNum) => word(0xc838 + 0x40*CNum)
+function Mem_StoryChar_PowerLevel(CNum) => word(0xc839 + 0x40*CNum)
+function Mem_StoryChar_ControlLevel(CNum) => word(0xc83a + 0x40*CNum)
+function Mem_StoryChar_SpeedLevel(CNum) => word(0xc83b + 0x40*CNum)
+
+function Mem_StoryChar_TopStat(CNum) => word(0xc820 + 0x40*CNum)
+function Mem_StoryChar_SliceStat(CNum) => word(0xc821 + 0x40*CNum)
+function Mem_StoryChar_ServeStat(CNum) => word(0xc822 + 0x40*CNum)
+function Mem_StoryChar_StrokeStat(CNum) => word(0xc823 + 0x40*CNum)
+function Mem_StoryChar_VolleyStat(CNum) => word(0xc824 + 0x40*CNum)
+function Mem_StoryChar_AngleStat(CNum) => word(0xc825 + 0x40*CNum)
+function Mem_StoryChar_PlacementStat(CNum) => word(0xc826 + 0x40*CNum)
+function Mem_StoryChar_SpeedStat(CNum) => word(0xc827 + 0x40*CNum)
+function Mem_StoryChar_DashStat(CNum) => word(0xc828 + 0x40*CNum)
+function Mem_StoryChar_ReactionStat(CNum) => word(0xc829 + 0x40*CNum)
+function Mem_StoryChar_StopStat(CNum) => word(0xc82a + 0x40*CNum)
+
+function Mem_Story_CurrentRacket() => lower4(0xc93c)
+function Mem_Story_CurrentShoes() => upper4(0xc93c)
+    // Racket values
+    NormalRacket = 0x00
+    LargeRacket = 0x01
+    SmallRacket = 0x02
+    IronRacket = 0x03
+    GoldRacket = 0x04
+    SilverRacket = 0x05
+    DriveRacket = 0x06
+    // Shoes values
+    NormalShoes = 0x00
+    IronShoes = 0x01
+    LightShoes = 0x02
+    
+function Mem_Story_CurrentEvent() => word_be(0xc8f6)
+    // Event values
+    Singles_Junior_PracticeMatch = 0x000
+    Singles_Junior_Rank4 = 0x001
+    Singles_Junior_Rank3 = 0x002
+    Singles_Junior_Rank2 = 0x003
+    Singles_Junior_Rank1 = 0x004
+    Singles_Senior_PracticeMatch = 0x005
+    Singles_Senior_Rank4 = 0x006
+    Singles_Senior_Rank3 = 0x007
+    Singles_Senior_Rank2 = 0x008
+    Singles_Senior_Rank1 = 0x009
+    Singles_Varsity_PracticeMatch = 0x00a
+    Singles_Varsity_Rank4 = 0x00b
+    Singles_IslandOpen_Round1 = 0x010
+    Singles_IslandOpen_Round2 = 0x011
+    Singles_IslandOpen_Semis = 0x012
+    Singles_IslandOpen_Finals = 0x013
+    Singles_FinalBoss = 0x018
+    Singles_FinalBoss_Intense = 0x017
+    Singles_FinalBoss_MAX = 0x016
+    Doubles_Junior_PracticeMatch = 0x100
+    Doubles_Junior_Rank3 = 0x102
+    Doubles_Junior_Rank2 = 0x103
+    Doubles_Junior_Rank1 = 0x104
+    Doubles_Senior_PracticeMatch = 0x105
+    Doubles_Senior_Rank3 = 0x107
+    Doubles_Senior_Rank2 = 0x108
+    Doubles_Senior_Rank1 = 0x109
+    Doubles_Varsity_PracticeMatch = 0x10a
+    Doubles_Varsity_Rank2 = 0x10d
+    Doubles_IslandOpen_Round1 = 0x111
+    Doubles_IslandOpen_Semis = 0x112
+    Doubles_IslandOpen_Finals = 0x113
+    Doubles_FinalBoss = 0x118
+    Doubles_FinalBoss_Intense = 0x117
+    Doubles_FinalBoss_MAX = 0x116
+    Minigame_ServiceMatch = [0x200, 0x201, 0x202]
+    Minigame_ServicePractice = [0x203, 0x204, 0x205]
+    Minigame_NetPlayMatch = [0x206, 0x207, 0x208]
+    Minigame_NetPlayPractice = [0x209, 0x20a, 0x20b]
+    Minigame_StrokeMatch = [0x20c, 0x20d, 0x20e]
+    Minigame_StrokePractice = [0x20f, 0x210, 0x211]
+    Minigame_TennisMachine = [0x212, 0x213, 0x214, 0x215, 0x21a]
+    Minigame_WallPractice = [0x216, 0x217, 0x218, 0x219, 0x21b]
+    Minigame_Mario = 0x21c
+    Minigame_Luigi = 0x21d
+    Minigame_Peach = 0x21e
+    Minigame_BabyMario = 0x21f
+    Minigame_Yoshi = 0x220
+    Minigame_DK = 0x221
+    Minigame_Wario = 0x222
+    Minigame_Waluigi = 0x223
+    Minigame_Bowser = 0x224
+//--------------------------------------------------------------------------Unlock/Completion Flags-----------------------------------------------------------------------------------------------------------------------
+MatchBeatFlags_Singles =
+[
+    bit7(0xc9ca), bit6(0xc9ca), bit5(0xc9ca), bit4(0xc9ca), // junior class
+    bit3(0xc9ca), bit2(0xc9ca), bit1(0xc9ca), bit0(0xc9ca), // senior class
+    bit7(0xc9cb),                                           // varsity
+    bit0(0xc9c7), bit1(0xc9c7), bit2(0xc9c7), bit3(0xc9c7), // Island Open
+    bit4(0xc9c7)                                            // final boss
+]
+
+MatchBeatFlags_Doubles =
+[
+    bit7(0xc9c8), bit6(0xc9c8), bit5(0xc9c8), // junior class
+    bit3(0xc9c8), bit2(0xc9c8), bit1(0xc9c8), // senior class
+    bit7(0xc9c9),                             // varsity
+    bit0(0xc9c6), bit1(0xc9c6), bit2(0xc9c6), // Island Open
+    bit3(0xc9c6)                              // final boss
+]
+
+function Mem_HaveEquip_LargeRacket() => bit6(0xc9cc)
+function Mem_HaveEquip_SmallRacket() => bit5(0xc9cc)
+function Mem_HaveEquip_IronRacket() => bit4(0xc9cc)
+function Mem_HaveEquip_SilverRacket() => bit3(0xc9cc)
+function Mem_HaveEquip_DriveRacket() => bit2(0xc9cc)
+function Mem_HaveEquip_GoldRacket() => bit1(0xc9cc)
+function Mem_HaveEquip_IronShoes() => bit0(0xc9cc)
+function Mem_HaveEquip_LightShoes() => bit7(0xc9cd)
+
+TrainingMinigames_Lv1 = [bit7(0xc9d8), bit4(0xc9d8), bit1(0xc9d8), bit6(0xc9d9), bit3(0xc9d9), bit0(0xc9d9)]
+TrainingMinigames_Lv2 = [bit6(0xc9d8), bit3(0xc9d8), bit0(0xc9d8), bit5(0xc9d9), bit2(0xc9d9), bit7(0xc9da)]
+TrainingMinigames_Lv3 = [bit5(0xc9d8), bit2(0xc9d8), bit7(0xc9d9), bit4(0xc9d9), bit1(0xc9d9), bit6(0xc9da)]
+TrainingMinigames_Lists = [TrainingMinigames_Lv1, TrainingMinigames_Lv2, TrainingMinigames_Lv3]
+
+Flag_BeatMinigame_ServiceMatch = [bit7(0xc9d8), bit6(0xc9d8), bit5(0xc9d8)]
+Flag_BeatMinigame_ServicePractice = [bit4(0xc9d8), bit3(0xc9d8), bit2(0xc9d8)]
+Flag_BeatMinigame_NetPlayMatch = [bit1(0xc9d8), bit0(0xc9d8), bit7(0xc9d9)]
+Flag_BeatMinigame_NetPlayPractice = [bit6(0xc9d9), bit5(0xc9d9), bit4(0xc9d9)]
+Flag_BeatMinigame_StrokeMatch = [bit3(0xc9d9), bit2(0xc9d9), bit1(0xc9d9)]
+Flag_BeatMinigame_StrokePractice = [bit0(0xc9d9), bit7(0xc9da), bit6(0xc9da)]
+Flag_BeatMinigame_TennisMachine = [bit5(0xc9da), bit4(0xc9da), bit3(0xc9da), bit2(0xc9da)]
+Flag_BeatMinigame_WallPractice = [bit1(0xc9da), bit0(0xc9da), bit7(0xc9db), bit6(0xc9db)]
+
+StarCourt_Flags =
+[
+    bitcount(0xc9ca), bit7(0xc9cb), bit0(0xc9c7), bit1(0xc9c7), bit2(0xc9c7), bit3(0xc9c7), bit4(0xc9c7),                                                       // singles story
+    bit7(0xc9c8), bit6(0xc9c8), bit5(0xc9c8), bit3(0xc9c8), bit2(0xc9c8), bit1(0xc9c8), bit7(0xc9c9), bit0(0xc9c6), bit1(0xc9c6), bit2(0xc9c6), bit3(0xc9c6),   // doubles story
+    bitcount(0xc9d8), bitcount(0xc9d9), bitcount(0xc9da), bit7(0xc9db), bit6(0xc9db)                                                                            // minigames
+]
+
+StarCourt_TotalFlags = 51 // total bitflags for Star Court unlock
+
+Flag_BeatMinigame_Mario = [bit3(0xa042), bit2(0xa042), bit1(0xa042)]
+Flag_BeatMinigame_Luigi = [bit0(0xa042), bit7(0xa043), bit6(0xa043)]
+Flag_BeatMinigame_Peach = [bit5(0xa043), bit4(0xa043), bit3(0xa043)]
+Flag_BeatMinigame_BabyMario = [bit2(0xa043), bit1(0xa043), bit0(0xa043)]
+Flag_BeatMinigame_Yoshi = [bit7(0xa045), bit6(0xa045), bit5(0xa045)]
+Flag_BeatMinigame_DK = [bit4(0xa045), bit3(0xa045), bit2(0xa045)]
+Flag_BeatMinigame_Wario = [bit1(0xa045), bit0(0xa045), bit7(0xa046)]
+Flag_BeatMinigame_Waluigi = [bit6(0xa046), bit5(0xa046), bit4(0xa046)]
+Flag_BeatMinigame_Bowser = [bit3(0xa046), bit2(0xa046), bit1(0xa046)]
+
+function Mem_Unlock_StarCourt() => bit6(0xa047)
+function Mem_Unlock_CastleCourt() => bit5(0xa047)
+function Mem_Unlock_TropicsCourt() => bit4(0xa047)
+function Mem_Unlock_JungleCourt() => bit3(0xa047)
+function Mem_Unlock_WarehouseCourt() => bit2(0xa047)
+//--------------------------------------------------------------------------Advanced Functions-----------------------------------------------------------------------------------------------------------------------
+function Bool_IsMarioChar(PNum, CNum) => Mem_CharID(PNum, CNum) >= 0x17
+//--------------------------------------------------------------------------Achievement Logic-----------------------------------------------------------------------------------------------------------------------
+function Logic_Ach_WinMatch(MatchID) => 
+Mem_CurrentGameMode() != Mode_None && (Mem_CurrentGameMode() <= 0x03 || Mem_CurrentGameMode() == Mode_DreamMatch) &&
+Mem_Story_CurrentEvent() == MatchID && prev(Mem_Flag_MatchWin()) == Flag_None && Mem_Flag_MatchWin() == Flag_Win
+
+function Logic_Ach_TrainingCourt(TrainingLevel) =>
+Mem_Story_Location() == TrainingCourt &&
+sum_of(range(1, length(TrainingMinigames_Lists[TrainingLevel-1])), f => prev(TrainingMinigames_Lists[TrainingLevel-1][f-1])) == StarCourt_TotalFlags-1 &&
+measured(sum_of(range(1, length(StarCourt_Flags)), f => StarCourt_Flags[f-1]) == StarCourt_TotalFlags)
+
+function Logic_Ach_ClearStatus() =>
+Mem_Story_Location() != Empty &&
+sum_of(range(1, length(StarCourt_Flags)), f => prev(StarCourt_Flags[f-1])) == StarCourt_TotalFlags-1 &&
+measured(sum_of(range(1, length(StarCourt_Flags)), f => StarCourt_Flags[f-1]) == StarCourt_TotalFlags)
+
+function Logic_Ach_DropShot() =>
+Mem_CurrentGameMode() != Mode_None &&
+Mem_Char_DropShotCount(C1) > prev(Mem_Char_DropShotCount(C1))
+
+function Logic_Ach_ServiceAce() =>
+Mem_CurrentGameMode() != Mode_None &&
+Mem_Char_ServiceAceCount(C1) > prev(Mem_Char_ServiceAceCount(C1))
+
+function Logic_Ach_ReturnAceBreak() =>
+Mem_CurrentGameMode() != Mode_None &&
+Mem_Player_Games(P1) != prev(Mem_Player_Games(P1)) && Mem_Char_ReturnAceCount(C1) > prev(Mem_Char_ReturnAceCount(C1))
+
+function Logic_Ach_GameAced() => // TODO: add check for Bowser's minigame + all restrictions and conditions + Trigger. Current state is broken w/tiebreaker
+Mem_CurrentGameMode() != Mode_None && !Bool_IsTiebreaker() && (Mem_CurrentGameMode() <= Mode_Exhibition || Mem_CurrentGameMode() == Mode_DreamMatch) &&
+Mem_Char_ServiceAceCount(C1) > prev(Mem_Char_ServiceAceCount(C1))
+
+function Logic_Ach_GoldenSet() => // TODO: add restrictions + Trigger. 
+Mem_CurrentGameMode() == Mode_Exhibition && Bool_IsMarioChar(P2, C1) && Mem_CharDiff() == Diff_Intense &&
+Mem_Player_Games(P1) != prev(Mem_Player_Games(P1)) && Mem_Char_ReturnAceCount(C1) > prev(Mem_Char_ReturnAceCount(C1))
+//--------------------------------------------------------------------------Leaderboard Logic-----------------------------------------------------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------Rich Presence Logic----------------------------------------------------------------------------------------------------------------
+function Logic_RP_IntroCutscene() 
+{
+    rich_presence_conditional_display
+    (
+        Bool_InIntroCutscene(),
+        "Currently watching the intro"
+    )
+}
+
+function Logic_RP_TitleScreen() 
+{
+    rich_presence_conditional_display
+    (
+        Mem_CurrentBGM() == BGM_TitleScreen,
+        "Currently on the Title Screen"
+    )
+}
+
+function Logic_RP_MainMenu()
+{
+    rich_presence_conditional_display
+    (
+        Mem_CurrentBGM() == BGM_MainMenu,
+        "Currently on the Main Menu"
+    )
+}
+
+function Logic_RP_Status()
+{
+    rich_presence_conditional_display
+    (
+        Mem_CurrentBGM() == BGM_Status,
+        "Currently checking some stat screens"
+    )
+}
+
+function Logic_RP_Dictionary()
+{
+    rich_presence_conditional_display
+    (
+        Mem_CurrentBGM() == BGM_Dictionary,
+        "Currently looking through the Dictionary"
+    )
+}
+
+function Logic_RP_Sleep()
+{
+    rich_presence_conditional_display
+    (
+        Mem_Story_Location() == Dormitory && prior(Mem_CurrentBGM()) == BGM_Dormitory && Mem_CurrentBGM() == BGM_None,
+        "Sleepy time..."
+    )
+}
+
+function Logic_RP_Leveling()
+{
+    rich_presence_conditional_display
+    (
+        Mem_CurrentBGM() == BGM_EarnEXP,
+        "Currently watching that experience flow"
+    )
+    rich_presence_conditional_display
+    (
+        Mem_CurrentBGM() == BGM_DistributeEXP || Mem_CurrentBGM() == BGM_LevelUp,
+        "Currently distributing earned experience"
+    )
+    rich_presence_conditional_display
+    (
+        Mem_CurrentBGM() == BGM_ChooseStats,
+        "Currently choosing which stats to level up"
+    )
+}
+
+function Logic_RP_Credits()
+{
+    rich_presence_conditional_display
+    (
+        Mem_CurrentBGM() == BGM_Credits,
+        "Currently watching the credits"
+    )
+    rich_presence_conditional_display
+    (
+        Mem_CurrentBGM() == BGM_TheEnd,
+        "The End...?"
+    )
+}
+
+function Logic_RP_StoryMode_Idle()
+{
+    rich_presence_conditional_display
+    (
+        Mem_GameType() == Singles && Mem_CurrentGameMode() == Mode_None && Mem_Story_Location() != 0x00,
+        "{0} is currently {1}",
+        rich_presence_lookup("CharSprite", Mem_StoryChar_CharSprite(C1), CharSpriteLookup),
+        rich_presence_lookup("StoryLocation", Mem_Story_Location(), StoryLocationLookup)
+    )
+    rich_presence_conditional_display
+    (
+        Mem_GameType() == Doubles && Mem_CurrentGameMode() == Mode_None && Mem_Story_Location() != 0x00,
+        "{0} & {1} are currently {2}",
+        rich_presence_lookup("CharSprite", Mem_StoryChar_CharSprite(C1), CharSpriteLookup),
+        rich_presence_lookup("CharSprite", Mem_StoryChar_CharSprite(C2), CharSpriteLookup),
+        rich_presence_lookup("StoryLocation", Mem_Story_Location(), StoryLocationLookup)
+    )
+}
+
+function Logic_RP_StoryMode_Matches()
+{
+    MatchType_Names = 
+    {
+        Mode_RankingMatch: "ranking match",
+        Mode_IslandOpenMatch: "match",
+        Mode_PracticeMatch: "practice match",
+        Mode_DreamMatch: "dream match"
+    }
+    
+    // Story matches, singles
+    rich_presence_conditional_display
+    (
+        Mem_GameType() == Singles && (Mem_CurrentGameMode() == Mode_RankingMatch || 
+        Mem_CurrentGameMode() == Mode_IslandOpenMatch || 
+        Mem_CurrentGameMode() == Mode_PracticeMatch || 
+        Mem_CurrentGameMode() == Mode_DreamMatch) &&
+        Bool_IsDeuce(),
+        "{0} is currently in Story Mode, playing a {1} vs. {2} in {3}. {4}-{5} sets, {6}-{7} games, Deuce",
+        rich_presence_lookup("Char", Mem_CharID(P1, C1), CharLookup),
+        rich_presence_lookup("MatchType", Mem_CurrentGameMode(), MatchType_Names),
+        rich_presence_lookup("Char", Mem_CharID(P2, C1), CharLookup),
+        rich_presence_lookup("MatchLocation", Mem_Story_CurrentEvent(), MatchLocationLookup),
+        rich_presence_value("Number", Mem_Player_Sets(P1)),
+        rich_presence_value("Number", Mem_Player_Sets(P2)),
+        rich_presence_value("Number", Mem_Player_Games(P1)),
+        rich_presence_value("Number", Mem_Player_Games(P2))
+    )
+    rich_presence_conditional_display
+    (
+        Mem_GameType() == Singles && (Mem_CurrentGameMode() == Mode_RankingMatch || 
+        Mem_CurrentGameMode() == Mode_IslandOpenMatch || 
+        Mem_CurrentGameMode() == Mode_PracticeMatch || 
+        Mem_CurrentGameMode() == Mode_DreamMatch),
+        "{0} is currently in Story Mode, playing a {1} vs. {2} in {3}. {4}-{5} sets, {6}-{7} games, {8}-{9}",
+        rich_presence_lookup("Char", Mem_CharID(P1, C1), CharLookup),
+        rich_presence_lookup("MatchType", Mem_CurrentGameMode(), MatchType_Names),
+        rich_presence_lookup("Char", Mem_CharID(P2, C1), CharLookup),
+        rich_presence_lookup("MatchLocation", Mem_Story_CurrentEvent(), MatchLocationLookup),
+        rich_presence_value("Number", Mem_Player_Sets(P1)),
+        rich_presence_value("Number", Mem_Player_Sets(P2)),
+        rich_presence_value("Number", Mem_Player_Games(P1)),
+        rich_presence_value("Number", Mem_Player_Games(P2)),
+        rich_presence_lookup("Points", Mem_Flag_Tiebreaker() * 0x100 + Mem_Player_Points(P1), PointsLookup),
+        rich_presence_lookup("Points", Mem_Flag_Tiebreaker() * 0x100 + Mem_Player_Points(P2), PointsLookup)
+    )
+    // Story matches, doubles
+    rich_presence_conditional_display
+    (
+        Mem_GameType() == Doubles && (Mem_CurrentGameMode() == Mode_RankingMatch || 
+        Mem_CurrentGameMode() == Mode_IslandOpenMatch || 
+        Mem_CurrentGameMode() == Mode_PracticeMatch || 
+        Mem_CurrentGameMode() == Mode_DreamMatch) &&
+        Bool_IsDeuce(),
+        "{0} & {1} are currently in Story Mode, playing a {2} vs. {3} & {4} in {5}. {6}-{7} sets, {8}-{9} games, Deuce",
+        rich_presence_lookup("Char", Mem_CharID(P1, C1), CharLookup),
+        rich_presence_lookup("Char", Mem_CharID(P1, C2), CharLookup),
+        rich_presence_lookup("MatchType", Mem_CurrentGameMode(), MatchType_Names),
+        rich_presence_lookup("Char", Mem_CharID(P2, C1), CharLookup),
+        rich_presence_lookup("Char", Mem_CharID(P2, C2), CharLookup),
+        rich_presence_lookup("MatchLocation", Mem_Story_CurrentEvent(), MatchLocationLookup),
+        rich_presence_value("Number", Mem_Player_Sets(P1)),
+        rich_presence_value("Number", Mem_Player_Sets(P2)),
+        rich_presence_value("Number", Mem_Player_Games(P1)),
+        rich_presence_value("Number", Mem_Player_Games(P2))
+    )
+    rich_presence_conditional_display
+    (
+        Mem_GameType() == Doubles && (Mem_CurrentGameMode() == Mode_RankingMatch || 
+        Mem_CurrentGameMode() == Mode_IslandOpenMatch || 
+        Mem_CurrentGameMode() == Mode_PracticeMatch || 
+        Mem_CurrentGameMode() == Mode_DreamMatch),
+        "{0} & {1} are currently in Story Mode, playing a {2} vs. {3} & {4} in {5}. {6}-{7} sets, {8}-{9} games, {10}-{11}",
+        rich_presence_lookup("Char", Mem_CharID(P1, C1), CharLookup),
+        rich_presence_lookup("Char", Mem_CharID(P1, C2), CharLookup),
+        rich_presence_lookup("MatchType", Mem_CurrentGameMode(), MatchType_Names),
+        rich_presence_lookup("Char", Mem_CharID(P2, C1), CharLookup),
+        rich_presence_lookup("Char", Mem_CharID(P2, C2), CharLookup),
+        rich_presence_lookup("MatchLocation", Mem_Story_CurrentEvent(), MatchLocationLookup),
+        rich_presence_value("Number", Mem_Player_Sets(P1)),
+        rich_presence_value("Number", Mem_Player_Sets(P2)),
+        rich_presence_value("Number", Mem_Player_Games(P1)),
+        rich_presence_value("Number", Mem_Player_Games(P2)),
+        rich_presence_lookup("Points", Mem_Flag_Tiebreaker() * 0x100 + Mem_Player_Points(P1), PointsLookup),
+        rich_presence_lookup("Points", Mem_Flag_Tiebreaker() * 0x100 + Mem_Player_Points(P2), PointsLookup)
+    )
+}
+
+function Logic_RP_Exhibition()
+{
+    // Exhibition matches, singles
+    rich_presence_conditional_display
+    (
+        Mem_GameType() == Singles && Mem_CurrentGameMode() == Mode_Exhibition && Bool_IsDeuce(),
+        "{0} vs. {1} in an Exhibition match on the {2}. {3}-{4} sets, {5}-{6} games, Deuce",
+        rich_presence_lookup("Char", Mem_CharID(P1, C1), CharLookup),
+        rich_presence_lookup("Char", Mem_CharID(P2, C1), CharLookup),
+        rich_presence_lookup("Court", Mem_CurrentCourt(), CourtLookup),
+        rich_presence_value("Number", Mem_Player_Sets(P1)),
+        rich_presence_value("Number", Mem_Player_Sets(P2)),
+        rich_presence_value("Number", Mem_Player_Games(P1)),
+        rich_presence_value("Number", Mem_Player_Games(P2))
+    )
+    rich_presence_conditional_display
+    (
+        Mem_GameType() == Singles && Mem_CurrentGameMode() == Mode_Exhibition,
+        "{0} vs. {1} in an Exhibition match on the {2}. {3}-{4} sets, {5}-{6} games, {7}-{8}",
+        rich_presence_lookup("Char", Mem_CharID(P1, C1), CharLookup),
+        rich_presence_lookup("Char", Mem_CharID(P2, C1), CharLookup),
+        rich_presence_lookup("Court", Mem_CurrentCourt(), CourtLookup),
+        rich_presence_value("Number", Mem_Player_Sets(P1)),
+        rich_presence_value("Number", Mem_Player_Sets(P2)),
+        rich_presence_value("Number", Mem_Player_Games(P1)),
+        rich_presence_value("Number", Mem_Player_Games(P2)),
+        rich_presence_lookup("Points", Mem_Flag_Tiebreaker() * 0x100 + Mem_Player_Points(P1), PointsLookup),
+        rich_presence_lookup("Points", Mem_Flag_Tiebreaker() * 0x100 + Mem_Player_Points(P2), PointsLookup)
+    )
+    // Exhibition matches, doubles
+    rich_presence_conditional_display
+    (
+        Mem_GameType() == Doubles && Mem_CurrentGameMode() == Mode_Exhibition && Bool_IsDeuce(),
+        "{0} & {1} vs. {2} & {3} in an Exhibition match on the {4}. {5}-{6} sets, {7}-{8} games, Deuce",
+        rich_presence_lookup("Char", Mem_CharID(P1, C1), CharLookup),
+        rich_presence_lookup("Char", Mem_CharID(P1, C2), CharLookup),
+        rich_presence_lookup("Char", Mem_CharID(P2, C1), CharLookup),
+        rich_presence_lookup("Char", Mem_CharID(P2, C2), CharLookup),
+        rich_presence_lookup("Court", Mem_CurrentCourt(), CourtLookup),
+        rich_presence_value("Number", Mem_Player_Sets(P1)),
+        rich_presence_value("Number", Mem_Player_Sets(P2)),
+        rich_presence_value("Number", Mem_Player_Games(P1)),
+        rich_presence_value("Number", Mem_Player_Games(P2))
+    )
+    rich_presence_conditional_display
+    (
+        Mem_GameType() == Doubles && Mem_CurrentGameMode() == Mode_Exhibition,
+        "{0} & {1} vs. {2} & {3} in an Exhibition match on the {4}. {5}-{6} sets, {7}-{8} games, {9}-{10}",
+        rich_presence_lookup("Char", Mem_CharID(P1, C1), CharLookup),
+        rich_presence_lookup("Char", Mem_CharID(P1, C2), CharLookup),
+        rich_presence_lookup("Char", Mem_CharID(P2, C1), CharLookup),
+        rich_presence_lookup("Char", Mem_CharID(P2, C2), CharLookup),
+        rich_presence_lookup("Court", Mem_CurrentCourt(), CourtLookup),
+        rich_presence_value("Number", Mem_Player_Sets(P1)),
+        rich_presence_value("Number", Mem_Player_Sets(P2)),
+        rich_presence_value("Number", Mem_Player_Games(P1)),
+        rich_presence_value("Number", Mem_Player_Games(P2)),
+        rich_presence_lookup("Points", Mem_Flag_Tiebreaker() * 0x100 + Mem_Player_Points(P1), PointsLookup),
+        rich_presence_lookup("Points", Mem_Flag_Tiebreaker() * 0x100 + Mem_Player_Points(P2), PointsLookup)
+    )
+}
+//--------------------------------------------------------------------------Achievements-----------------------------------------------------------------------------------------------------------------------
+function Create_Ach_WinMatch(MatchID, Ach_Points, Ach_Type = "", AchID = 0)
+{
+    WinMatch_Titles =
+    {
+        Singles_Junior_PracticeMatch: "Junior Practice Match (Singles)",
+        Singles_Junior_Rank4: "Junior Rank 4th (Singles)",
+        Singles_Junior_Rank3: "Junior Rank 3rd (Singles)",
+        Singles_Junior_Rank2: "Junior Rank 2nd (Singles)",
+        Singles_Junior_Rank1: "Junior Champ (Singles)",
+        Singles_Senior_PracticeMatch: "Senior Practice Match (Singles)",
+        Singles_Senior_Rank4: "Senior Rank 4th (Singles)",
+        Singles_Senior_Rank3: "Senior Rank 3rd (Singles)",
+        Singles_Senior_Rank2: "Senior Rank 2nd (Singles)",
+        Singles_Senior_Rank1: "Senior Champ (Singles)",
+        Singles_Varsity_PracticeMatch: "Varsity Practice Match (Singles)",
+        Singles_Varsity_Rank4: "Enter the Traveling Team (Singles)",
+        Singles_IslandOpen_Round1: "Island Open Round 1 (Singles)",
+        Singles_IslandOpen_Round2: "Island Open Round 2 (Singles)",
+        Singles_IslandOpen_Semis: "Island Open Semifinals (Singles)",
+        Singles_IslandOpen_Finals: "Island Open Champion (Singles)",
+        Singles_FinalBoss: "The Dream Match (Singles)",
+        Singles_FinalBoss_MAX: "Better Than Mario!",
+        Doubles_Junior_PracticeMatch: "Junior Practice Match (Doubles)",
+        Doubles_Junior_Rank3: "Junior Rank 3rd (Doubles)",
+        Doubles_Junior_Rank2: "Junior Rank 2nd (Doubles)",
+        Doubles_Junior_Rank1: "Junior Champ (Doubles)",
+        Doubles_Senior_PracticeMatch: "Senior Practice Match (Doubles)",
+        Doubles_Senior_Rank3: "Senior Rank 3rd (Doubles)",
+        Doubles_Senior_Rank2: "Senior Rank 2nd (Doubles)",
+        Doubles_Senior_Rank1: "Senior Champ (Doubles)",
+        Doubles_Varsity_PracticeMatch: "Varsity Practice Match (Doubles)",
+        Doubles_Varsity_Rank2: "Enter the Traveling Team (Doubles)",
+        Doubles_IslandOpen_Round1: "Island Open Round 1 (Doubles)",
+        Doubles_IslandOpen_Semis: "Island Open Semifinals (Doubles)",
+        Doubles_IslandOpen_Finals: "Island Open Champion (Doubles)",
+        Doubles_FinalBoss: "The Dream Match (Doubles)",
+        Doubles_FinalBoss_MAX: "Take That, Peach!",
+    }
+    WinMatch_Descriptions =
+    {
+        Singles_Junior_PracticeMatch: "Win a practice match in the Junior Class for singles before ranking up",
+        Singles_Junior_Rank4: "Become the 4th ranked player in the Junior Class for singles",
+        Singles_Junior_Rank3: "Become the 3rd ranked player in the Junior Class for singles",
+        Singles_Junior_Rank2: "Become the 2nd ranked player in the Junior Class for singles",
+        Singles_Junior_Rank1: "Become the Junior Class Champion for singles",
+        Singles_Senior_PracticeMatch: "Win a practice match in the Senior Class for singles before ranking up",
+        Singles_Senior_Rank4: "Become the 4th ranked player in the Senior Class for singles",
+        Singles_Senior_Rank3: "Become the 3rd ranked player in the Senior Class for singles",
+        Singles_Senior_Rank2: "Become the 2nd ranked player in the Senior Class for singles",
+        Singles_Senior_Rank1: "Become the Senior Class Champion for singles",
+        Singles_Varsity_PracticeMatch: "Win a practice match in the Varsity Squad for singles before joining the Traveling Team",
+        Singles_Varsity_Rank4: "Defeat Bob in a singles match to join the Traveling Team",
+        Singles_IslandOpen_Round1: "Win round 1 of the Island Open Tournament in singles",
+        Singles_IslandOpen_Round2: "Win round 2 of the Island Open Tournament in singles",
+        Singles_IslandOpen_Semis: "Win the semifinals of the Island Open Tournament in singles",
+        Singles_IslandOpen_Finals: "Win the Island Open Tournament in singles",
+        Singles_FinalBoss: "Finish the Mario Tour in singles",
+        Singles_FinalBoss_MAX: "Rematch and defeat the final opponent on MAX difficulty in singles",
+        Doubles_Junior_PracticeMatch: "Win a practice match in the Junior Class for doubles before ranking up",
+        Doubles_Junior_Rank3: "Become the 3rd ranked team in the Junior Class for doubles",
+        Doubles_Junior_Rank2: "Become the 2nd ranked team in the Junior Class for doubles",
+        Doubles_Junior_Rank1: "Become the Junior Class Champion for doubles",
+        Doubles_Senior_PracticeMatch: "Win a practice match in the Senior Class for doubles before ranking up",
+        Doubles_Senior_Rank3: "Become the 3rd ranked team in the Senior Class for doubles",
+        Doubles_Senior_Rank2: "Become the 2nd ranked team in the Senior Class for doubles",
+        Doubles_Senior_Rank1: "Become the Senior Class Champion for doubles",
+        Doubles_Varsity_PracticeMatch: "Win a practice match in the Varsity Squad for doubles before joining the Traveling Team",
+        Doubles_Varsity_Rank2: "Defeat Bob and Mark in a doubles match to join the Traveling Team",
+        Doubles_IslandOpen_Round1: "Win round 1 of the Island Open Tournament in doubles",
+        Doubles_IslandOpen_Semis: "Win the semifinals of the Island Open Tournament in doubles",
+        Doubles_IslandOpen_Finals: "Win the Island Open Tournament in doubles",
+        Doubles_FinalBoss: "Finish the Mario Tour in doubles",
+        Doubles_FinalBoss_MAX: "Rematch and defeat the final opponents on MAX difficulty in doubles",
+    }
+	
+    achievement
+    (
+        id = AchID,
+        title = WinMatch_Titles[MatchID],
+        description = WinMatch_Descriptions[MatchID],
+        points = Ach_Points,
+        type = Ach_Type,
+        trigger = Logic_Ach_WinMatch(MatchID)
+    )
+}
+
+function Create_Ach_TrainingCourt(TrainingLevel, Ach_Title, Ach_Points, Ach_Type = "", AchID = 0)
+{
+    ClearStatus_Desc = format("Complete all Level {0} minigames on the Training Court", TrainingLevel)
+
+    achievement
+    (
+        id = AchID,
+        title = Ach_Title,
+        description = TrainingCourt_Desc,
+        points = Ach_Points,
+        type = Ach_Type,
+        trigger = Logic_Ach_TrainingCourt()
+    )
+}
+
+function Create_Ach_ClearStatus(Ach_Title, Ach_Points, Ach_Type = "", AchID = 0)
+{
+    ClearStatus_Desc = "Complete everything in the Clear Status screen in Mario Tour
+"
+
+    achievement
+    (
+        id = AchID,
+        title = Ach_Title,
+        description = ClearStatus_Desc,
+        points = Ach_Points,
+        type = Ach_Type,
+        trigger = Logic_Ach_ClearStatus()
+    )
+}
+
+function Create_Ach_DropShot(Ach_Title, Ach_Points, Ach_Type = "", AchID = 0)
+{
+    DropShot_Desc = "Score a point with a Drop Shot (cannot be done by an AI doubles partner)"
+
+    achievement
+    (
+        id = AchID,
+        title = Ach_Title,
+        description = DropShot_Desc,
+        points = Ach_Points,
+        type = Ach_Type,
+        trigger = Logic_Ach_DropShot()
+    )
+}
+
+function Create_Ach_ServiceAce(Ach_Title, Ach_Points, Ach_Type = "", AchID = 0)
+{
+    ServiceAce_Desc = "Get a Service Ace (cannot be done by an AI doubles partner)"
+
+    achievement
+    (
+        id = AchID,
+        title = Ach_Title,
+        description = ServiceAce_Desc,
+        points = Ach_Points,
+        type = Ach_Type,
+        trigger = Logic_Ach_ServiceAce()
+    )
+}
+
+function Create_Ach_ReturnAceBreak(Ach_Title, Ach_Points, Ach_Type = "", AchID = 0)
+{
+    ReturnAceBreak_Desc = "Win a game on Break Point with a Return Ace (cannot be done by an AI doubles partner)"
+
+    achievement
+    (
+        id = AchID,
+        title = Ach_Title,
+        description = ReturnAceBreak_Desc,
+        points = Ach_Points,
+        type = Ach_Type,
+        trigger = Logic_Ach_ReturnAceBreak()
+    )
+}
+
+function Create_Ach_GameAced(Ach_Title, Ach_Points, Ach_Type = "", AchID = 0)
+{
+    GameAced_Desc = "Win a whole game with only Service Aces (cannot be done by an AI doubles partner)"
+
+    achievement
+    (
+        id = AchID,
+        title = Ach_Title,
+        description = GameAced_Desc,
+        points = Ach_Points,
+        type = Ach_Type,
+        trigger = Logic_Ach_GameAced()
+    )
+}
+
+function Create_Ach_GoldenSet(Ach_Title, Ach_Points, Ach_Type = "", AchID = 0)
+{
+    GoldenSet_Desc = "In Exhibition Mode, Singles, win a whole set of 6 games without losing a single point against a Mario character on Intense"
+
+    achievement
+    (
+        id = AchID,
+        title = Ach_Title,
+        description = GoldenSet_Desc,
+        points = Ach_Points,
+        type = Ach_Type,
+        trigger = Logic_Ach_GoldenSet()
+    )
+}
+//--------------------------------------------------------------------------Leaderboards-----------------------------------------------------------------------------------------------------------------------
+function Create_LB_Test(LB_Title, LBID = 0)
+{
+    leaderboard
+    (
+        id = LBID,
+        title = LB_Title,
+        description = "Test",
+        start  = 0,
+        cancel = 0,
+        submit = 0,
+        value = max_of(0, 0),
+        format = "VALUE"
+    )
+}
+//--------------------------------------------------------------------------Rich Presence-----------------------------------------------------------------------------------------------------------------------
+function Create_RP() // TODO: minigames, maybe other stuff
+{
+    Logic_RP_IntroCutscene()
+    Logic_RP_TitleScreen()
+    Logic_RP_MainMenu()
+    Logic_RP_Status()
+    Logic_RP_Dictionary()
+    Logic_RP_Sleep()
+    Logic_RP_Leveling()
+    Logic_RP_Credits()
+    Logic_RP_StoryMode_Idle()
+    Logic_RP_StoryMode_Matches()
+    Logic_RP_Exhibition()
+    rich_presence_display("Playing Mario Tennis")
+}
+//--------------------------------------------------------------------------Create Everything-----------------------------------------------------------------------------------------------------------------------
+Create_Ach_WinMatch(MatchID = Singles_Junior_PracticeMatch, Ach_Points = 5, Ach_Type = "missable")
+Create_Ach_WinMatch(MatchID = Singles_Junior_Rank4, Ach_Points = 5)
+Create_Ach_WinMatch(MatchID = Singles_Junior_Rank3, Ach_Points = 5, AchID = 50752)
+Create_Ach_WinMatch(MatchID = Singles_Junior_Rank2, Ach_Points = 5, AchID = 50753)
+Create_Ach_WinMatch(MatchID = Singles_Junior_Rank1, Ach_Points = 5, AchID = 50754)
+Create_Ach_WinMatch(MatchID = Singles_Senior_PracticeMatch, Ach_Points = 5, Ach_Type = "missable")
+Create_Ach_WinMatch(MatchID = Singles_Senior_Rank4, Ach_Points = 5, AchID = 50755)
+Create_Ach_WinMatch(MatchID = Singles_Senior_Rank3, Ach_Points = 5, AchID = 50756)
+Create_Ach_WinMatch(MatchID = Singles_Senior_Rank2, Ach_Points = 5, AchID = 50757)
+Create_Ach_WinMatch(MatchID = Singles_Senior_Rank1, Ach_Points = 5, AchID = 50758)
+Create_Ach_WinMatch(MatchID = Singles_Varsity_PracticeMatch, Ach_Points = 5, Ach_Type = "missable")
+Create_Ach_WinMatch(MatchID = Singles_Varsity_Rank4, Ach_Points = 5, AchID = 50764)
+Create_Ach_WinMatch(MatchID = Singles_IslandOpen_Round1, Ach_Points = 10)
+Create_Ach_WinMatch(MatchID = Singles_IslandOpen_Round2, Ach_Points = 10)
+Create_Ach_WinMatch(MatchID = Singles_IslandOpen_Semis, Ach_Points = 10)
+Create_Ach_WinMatch(MatchID = Singles_IslandOpen_Finals, Ach_Points = 10, AchID = 50766)
+Create_Ach_WinMatch(MatchID = Singles_FinalBoss, Ach_Points = 10, Ach_Type = "win_condition", AchID = 50768)
+Create_Ach_WinMatch(MatchID = Singles_FinalBoss_MAX, Ach_Points = 25)
+Create_Ach_WinMatch(MatchID = Doubles_Junior_PracticeMatch, Ach_Points = 5, Ach_Type = "missable")
+Create_Ach_WinMatch(MatchID = Doubles_Junior_Rank3, Ach_Points = 5)
+Create_Ach_WinMatch(MatchID = Doubles_Junior_Rank2, Ach_Points = 5)
+Create_Ach_WinMatch(MatchID = Doubles_Junior_Rank1, Ach_Points = 5, AchID = 50759)
+Create_Ach_WinMatch(MatchID = Doubles_Senior_PracticeMatch, Ach_Points = 5, Ach_Type = "missable")
+Create_Ach_WinMatch(MatchID = Doubles_Senior_Rank3, Ach_Points = 5)
+Create_Ach_WinMatch(MatchID = Doubles_Senior_Rank2, Ach_Points = 5)
+Create_Ach_WinMatch(MatchID = Doubles_Senior_Rank1, Ach_Points = 5, AchID = 50760)
+Create_Ach_WinMatch(MatchID = Doubles_Varsity_PracticeMatch, Ach_Points = 5, Ach_Type = "missable")
+Create_Ach_WinMatch(MatchID = Doubles_Varsity_Rank2, Ach_Points = 5)
+Create_Ach_WinMatch(MatchID = Doubles_IslandOpen_Round1, Ach_Points = 10)
+Create_Ach_WinMatch(MatchID = Doubles_IslandOpen_Semis, Ach_Points = 10)
+Create_Ach_WinMatch(MatchID = Doubles_IslandOpen_Finals, Ach_Points = 10, AchID = 50767)
+Create_Ach_WinMatch(MatchID = Doubles_FinalBoss, Ach_Points = 10, Ach_Type = "win_condition", AchID = 50769)
+Create_Ach_WinMatch(MatchID = Doubles_FinalBoss_MAX, Ach_Points = 25)
+Create_Ach_ClearStatus(Ach_Title = "Completionist", Ach_Points = 25)
+Create_Ach_DropShot(Ach_Title = "Drop Dead", Ach_Points = 2, AchID = 50567)
+Create_Ach_ServiceAce(Ach_Title = "Service Ace", Ach_Points = 2, AchID = 20979)
+Create_Ach_ReturnAceBreak(Ach_Title = "Ace Breaker", Ach_Points = 3, AchID = 50566)
+//Create_Ach_GameAced(Ach_Title = "Game Aced", Ach_Points = 3, AchID = 50718)
+//Create_Ach_GoldenSet(Ach_Title = "Golden Set", Ach_Points = 50, AchID = 50719)
+
+Create_RP()
